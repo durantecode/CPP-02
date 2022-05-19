@@ -6,7 +6,7 @@
 /*   By: ldurante <ldurante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 20:37:19 by ldurante          #+#    #+#             */
-/*   Updated: 2022/04/07 02:16:02 by ldurante         ###   ########.fr       */
+/*   Updated: 2022/05/19 12:14:11 by ldurante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,13 @@ Fixed::Fixed(int const value)
 }
 
 /* 1 << bits is used instead of pow(2, m_bits) because we are only
-allowed to use roundf function (just in case) */
+allowed to use roundf function (just in case)
+The bitwise << moves m_bits position to de left in binary, it's the equivalent
+to 2^m_bits */
 
 Fixed::Fixed(float const value)
 {
+	std::cout << "Float constructor called" << std::endl;
 	this->m_fixedPoint = roundf(value * (1 << this->m_bits));
 }
 
